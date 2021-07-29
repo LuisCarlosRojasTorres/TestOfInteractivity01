@@ -12,6 +12,7 @@ SOURCES += \
     CustomEllipse.cpp \
     CustomEllipseGraphicsItem.cpp \
     CustomEllipseScene.cpp \
+    DlgCustomEllipseEditor.cpp \
     main.cpp \
     Widget.cpp
 
@@ -19,9 +20,11 @@ HEADERS += \
     CustomEllipse.h \
     CustomEllipseGraphicsItem.h \
     CustomEllipseScene.h \
+    DlgCustomEllipseEditor.h \
     Widget.h
 
 FORMS += \
+    DlgCustomEllipseEditor.ui \
     Widget.ui
 
 # Default rules for deployment.

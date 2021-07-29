@@ -10,11 +10,15 @@ CONFIG += c++11
 
 SOURCES += \
     CustomEllipse.cpp \
+    CustomEllipseGraphicsItem.cpp \
+    CustomEllipseScene.cpp \
     main.cpp \
     Widget.cpp
 
 HEADERS += \
     CustomEllipse.h \
+    CustomEllipseGraphicsItem.h \
+    CustomEllipseScene.h \
     Widget.h
 
 FORMS += \

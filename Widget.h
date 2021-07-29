@@ -7,6 +7,8 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
 
+class CustomEllipseScene;
+
 class Widget : public QWidget
 {
     Q_OBJECT
@@ -17,5 +19,11 @@ public:
 
 private:
     Ui::Widget *ui;
+    CustomEllipseScene *mScene;
+
+//signals:
+//    void update():
+
+
 };
 #endif // WIDGET_H

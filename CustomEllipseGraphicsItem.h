@@ -3,17 +3,19 @@
 
 #include <memory>
 #include <QPainter>
-#include <QGraphicsItem>
+#include <QGraphicsObject>
 #include <QSizeF>
 
 class CustomEllipse;
 
-class CustomEllipseGraphicsItem : public QGraphicsItem
+class CustomEllipseGraphicsItem : public QGraphicsObject
 {
+    Q_OBJECT
+
 public:
     CustomEllipseGraphicsItem( std::shared_ptr<CustomEllipse> &customEllipse );
 
-    void setCustomEllipse( std::shared_ptr<CustomEllipse> &customEllipse );
+    void setCustomEllipse(double rx , double ry);
 
 protected:
     QRectF boundingRect() const override;
@@ -23,6 +25,9 @@ protected:
 private:
      std::shared_ptr<CustomEllipse> &customEllipse;
      QSize mSize;
+
+signals:
+     void rufo();
 
 };
 

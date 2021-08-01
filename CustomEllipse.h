@@ -22,6 +22,8 @@ public:
     AvailableColors getBorder() const;
     AvailableColors getFill() const;
 
+    void print();
+
     void setColors(AvailableColors border, AvailableColors fill);
     void setRadius(double radius);
     void setRadius(double rx, double ry);

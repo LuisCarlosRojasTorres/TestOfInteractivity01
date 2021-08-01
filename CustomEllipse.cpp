@@ -1,4 +1,5 @@
 #include "CustomEllipse.h"
+#include <iostream>
 
 CustomEllipse::CustomEllipse(QPointF center, double radius)
     :
@@ -45,6 +46,14 @@ CustomEllipse::AvailableColors CustomEllipse::getFill() const
     return this->fill;
 }
 
+void CustomEllipse::print()
+{
+    std::cout << " - CustomEllipse::print()" << std::endl;
+    std::cout << " - (rx,ry): " << this->getRx() << " , " << this->getRy() << std::endl;
+    std::cout << std::endl;
+
+}
+
 void CustomEllipse::setColors(AvailableColors border, AvailableColors fill)
 {
     this->border = border;
@@ -62,3 +71,5 @@ void CustomEllipse::setRadius(double rx, double ry)
     this->rx = rx;
     this->ry = ry;
 }
+
+

@@ -2,32 +2,45 @@
 
 #include "CustomEllipse.h"
 #include <iostream>
+#include <QGraphicsSceneMouseEvent>
 #include <QPainter>
+
 
 CustomEllipseGraphicsItem::CustomEllipseGraphicsItem(std::shared_ptr<CustomEllipse> &customEllipse)
     :
       customEllipse(customEllipse)
 {
 
+    setAcceptedMouseButtons(Qt::LeftButton);
+    setFlags(QGraphicsItem::ItemIsSelectable);
 }
 
-void CustomEllipseGraphicsItem::setCustomEllipse(std::shared_ptr<CustomEllipse> &customEllipse)
+void CustomEllipseGraphicsItem::setCustomEllipse(double rx, double ry)
 {
-    this->customEllipse = customEllipse;
+    this->customEllipse->setRadius(rx,ry);
 }
 
 QRectF CustomEllipseGraphicsItem::boundingRect() const
 {
-    return QRectF(customEllipse->getCenter().x()-customEllipse->getRx(),
-                  customEllipse->getCenter().y()-customEllipse->getRy(),
-                  customEllipse->getCenter().x()+customEllipse->getRx(),
-                  customEllipse->getCenter().y()+customEllipse->getRy()
+    return QRectF(
+                QPointF(
+                    customEllipse->getCenter().x()-customEllipse->getRx(),
+                    customEllipse->getCenter().y()-customEllipse->getRy()
+                    ),
+                QPointF(
+                    customEllipse->getCenter().x()+customEllipse->getRx(),
+                    customEllipse->getCenter().y()+customEllipse->getRy()
+                    )
                   );
 }
 
 void CustomEllipseGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    std::cout << "JYL!" << std::endl;
+    if(Qt::LeftButton){
+        this->customEllipse->print();
+        this->customEllipse->setRadius(50,50);
+        emit rufo();
+    }
 }
 
 void CustomEllipseGraphicsItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

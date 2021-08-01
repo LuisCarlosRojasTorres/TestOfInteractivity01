@@ -15,10 +15,10 @@ CustomEllipseScene::CustomEllipseScene(QObject *parent)
 {
     addRect(XPOS,YPOS,WIDTH,HEIGHT);
 
-    e1 = std::make_shared<CustomEllipse> (QPointF(100,100),10);
+    e1 = std::make_shared<CustomEllipse> (QPointF(100,100),5);
     e2 = std::make_shared<CustomEllipse> (QPointF(300,100),10);
-    e3 = std::make_shared<CustomEllipse> (QPointF(100,300),10);
-    e4 = std::make_shared<CustomEllipse> (QPointF(300,300),10);
+    e3 = std::make_shared<CustomEllipse> (QPointF(100,300),20);
+    e4 = std::make_shared<CustomEllipse> (QPointF(300,300),30);
 
     eg1 = new CustomEllipseGraphicsItem(e1);
     eg2 = new CustomEllipseGraphicsItem(e2);
@@ -29,6 +29,7 @@ CustomEllipseScene::CustomEllipseScene(QObject *parent)
     addItem(eg2);
     addItem(eg3);
     addItem(eg4);
+
 }
 
 //void CustomEllipseScene::onUpdate()

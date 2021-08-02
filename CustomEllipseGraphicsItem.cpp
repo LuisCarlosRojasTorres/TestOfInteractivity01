@@ -1,6 +1,8 @@
 #include "CustomEllipseGraphicsItem.h"
 
 #include "CustomEllipse.h"
+#include "DlgCustomEllipseEditor.h"
+
 #include <iostream>
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
@@ -38,8 +40,10 @@ void CustomEllipseGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if(Qt::LeftButton){
         this->customEllipse->print();
-        this->customEllipse->setRadius(50,50);
-        emit rufo();
+        dlg = new DlgCustomEllipseEditor(this->customEllipse);
+        //this->customEllipse->setRadius(50,50);
+        //emit rufo();
+        dlg->exec();
     }
 }
 

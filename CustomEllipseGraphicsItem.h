@@ -6,7 +6,9 @@
 #include <QGraphicsObject>
 #include <QSizeF>
 
+
 class CustomEllipse;
+class DlgCustomEllipseEditor;
 
 class CustomEllipseGraphicsItem : public QGraphicsObject
 {
@@ -25,6 +27,8 @@ protected:
 private:
      std::shared_ptr<CustomEllipse> &customEllipse;
      QSize mSize;
+
+     DlgCustomEllipseEditor *dlg;
 
 signals:
      void rufo();

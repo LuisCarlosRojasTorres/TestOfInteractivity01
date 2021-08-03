@@ -6,7 +6,7 @@
 #include <iostream>
 #include <QGraphicsSceneMouseEvent>
 #include <QPainter>
-
+#include <QMessageBox>
 
 CustomEllipseGraphicsItem::CustomEllipseGraphicsItem(std::shared_ptr<CustomEllipse> &customEllipse)
     :
@@ -40,10 +40,21 @@ void CustomEllipseGraphicsItem::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if(Qt::LeftButton){
         this->customEllipse->print();
-        dlg = new DlgCustomEllipseEditor(this->customEllipse);
-        //this->customEllipse->setRadius(50,50);
+        //dlg = new DlgCustomEllipseEditor(this->customEllipse);
+
+        //-BEGIN MESSAGE BOX
+//        QMessageBox msgBox;
+
+//        QString texto = "Radius\n"
+//                        "\n - Rx: " + QString::number(this->customEllipse->getRx()) +
+//                        "\n - Ry: " + QString::number(this->customEllipse->getRy()) ;
+//        msgBox.setText(texto);
+//        msgBox.exec();
+        //-END MESSAGE BOX
+
+        this->customEllipse->setRadius(50,50);
         //emit rufo();
-        dlg->exec();
+        //dlg->exec();
     }
 }
 
